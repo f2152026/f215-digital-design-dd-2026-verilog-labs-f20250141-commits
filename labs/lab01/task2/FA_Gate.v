@@ -18,18 +18,19 @@
 // ripple_adder.v and tb.v; nothing else needs to change.
 
 module FA_Gate(
-  input  a,
-  input  b,
-  input  cin,
+  input a,
+  input b,
+  input cin,
   output sum,
   output cout
 );
+
   wire ps, pc1, pc2;
 
-  xor (ps,  a,   b);
-  and (pc1, a,   b);
-  xor (sum, cin, ps);
-  and (pc2, cin, ps);
-  or  (cout, pc1, pc2);
+  xor #(2) (ps, a, b);
+  and #(2) (pc1, a, b);
+  and #(2) (pc2, cin, ps);
+  xor #(2) (sum, cin, ps);
+  or  #(2) (cout, pc1, pc2);
 
 endmodule
