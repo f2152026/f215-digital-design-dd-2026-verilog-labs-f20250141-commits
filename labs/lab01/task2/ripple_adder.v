@@ -13,16 +13,16 @@
 // Use named port connections (.a(...), .b(...), etc.), not positional.
 
 module ripple_adder(
-  input  [3:0] a,
-  input  [3:0] b,
-  input        cin,
+  input [3:0] a,
+  input [3:0] b,
+  input cin,
   output [3:0] sum,
-  output       cout
+  output cout
 );
 
   wire c1, c2, c3;
 
-  FA_Gate FA0 (
+  FA_Gate FA0(
     .a(a[0]),
     .b(b[0]),
     .cin(cin),
@@ -30,7 +30,7 @@ module ripple_adder(
     .cout(c1)
   );
 
-  FA_Gate FA1 (
+  FA_Gate FA1(
     .a(a[1]),
     .b(b[1]),
     .cin(c1),
@@ -38,7 +38,7 @@ module ripple_adder(
     .cout(c2)
   );
 
-  FA_Gate FA2 (
+  FA_Gate FA2(
     .a(a[2]),
     .b(b[2]),
     .cin(c2),
@@ -46,7 +46,7 @@ module ripple_adder(
     .cout(c3)
   );
 
-  FA_Gate FA3 (
+  FA_Gate FA3(
     .a(a[3]),
     .b(b[3]),
     .cin(c3),
