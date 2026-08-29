@@ -1,0 +1,15 @@
+Task 1 Answer:
+
+No, reordering the gate instantiations in Task 1(b) does not change the
+final logical result because Verilog gate instantiations are concurrent
+structural statements; their order in the source file does not determine
+the order in which the gates execute.
+
+In Task 1(c), adding delays changes the timing of the waveform and makes
+propagation delays visible. The final logical values of sum and cout
+remain the same after the circuit settles, but transitions occur later
+because signals must propagate through the delayed gates.
+
+1(b): No meaningful waveform/timing change due solely to gate reordering.
+1(c): Yes, the waveform timing changes because of the added gate delays.
+Final settled logic remains identical.
